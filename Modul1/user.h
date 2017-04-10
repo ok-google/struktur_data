@@ -29,25 +29,31 @@ void pinjam_mobil(){
     for(int kounter=0; kounter<banyak_mobil; kounter++){
         if(mobil[kounter].id_mobil == id_mobil){
             check = true;
-            cout<<"ID Mobil = "<<mobil[kounter].id_mobil<<endl;
-            cout<<"Nama Mobil = "<<mobil[kounter].nama_mobil<<endl;
-            cout<<"Tanggal Pembuatan = "<<mobil[kounter].pembuatan.tanggal<<"-"<<mobil[kounter].pembuatan.bulan<<"-"<<mobil[kounter].pembuatan.tahun<<endl;
-            cout<<"Status = Tidak Terpinjam"<<endl;
-            cout<<endl;
+            if(mobil[kounter].status == false){
+                cout<<"ID Mobil = "<<mobil[kounter].id_mobil<<endl;
+                cout<<"Nama Mobil = "<<mobil[kounter].nama_mobil<<endl;
+                cout<<"Tanggal Pembuatan = "<<mobil[kounter].pembuatan.tanggal<<"-"<<mobil[kounter].pembuatan.bulan<<"-"<<mobil[kounter].pembuatan.tahun<<endl;
+                cout<<"Status = Tidak Terpinjam"<<endl;
+                cout<<endl;
 
-            cout<<"Apakah Anda akan Pinjam Mobil ini [y/t] ? "<<endl;
-            cin>>pinjam;
+                cout<<"Apakah Anda akan Pinjam Mobil ini [y/t] ? "<<endl;
+                cin>>pinjam;
 
-            if(pinjam == 'y'){
-                strcpy(mobil[kounter].peminjam, data_login.username);
-                mobil[kounter].status = true;
-                cout<<"Masukan Lama Peminjaman = ";
-                cin>>lama_pinjam;
-                mobil[kounter].lama_pinjam = lama_pinjam;
+                if(pinjam == 'y'){
+                    strcpy(mobil[kounter].peminjam, data_login.username);
+                    mobil[kounter].status = true;
+                    cout<<"Masukan Lama Peminjaman = ";
+                    cin>>lama_pinjam;
+                    mobil[kounter].lama_pinjam = lama_pinjam;
+                }
+                else{
+                    cout<<"Peminjaman Dibatalkan"<<endl;
+                }
             }
             else{
-                cout<<"Peminjaman Dibatalkan"<<endl;
+                cout<<"Mobil Sudah Terpinjam"<<endl;
             }
+
         }
         else if((check == false) && (kounter == banyak_mobil-1)){
             cout<<"Tidak ada kecocokan ID"<<endl;
