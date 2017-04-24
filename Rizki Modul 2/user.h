@@ -73,7 +73,7 @@ void input_user(){
     do{
     cout<<"Masukan Hak Akses = ";
     cin.getline(user_baru->akses, 10);
-    }while(strcmp(user_baru->akses, "admin") != 0 || strcmp(user_baru->akses, "user") != 0)
+    }while(strcmp(user_baru->akses, "admin") != 0 && strcmp(user_baru->akses, "user") != 0);
     user_baru->next = NULL;
 }
 
